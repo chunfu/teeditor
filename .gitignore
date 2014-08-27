@@ -1,0 +1,9 @@
+*.class
+
+target/
+
+.settings/
+
+src_beta/
+
+src_20140827
