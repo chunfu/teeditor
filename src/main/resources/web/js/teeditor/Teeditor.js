@@ -56,7 +56,7 @@ teeditor.Teeditor = zk.$extends(zul.Widget, {
 				if(this.desktop) {
 					//updated UI here.
 					if (this._editor)
-						this._editor.html() = this._value;
+						this._editor.html(this._value);
 				}
 			}
 		],
@@ -69,18 +69,21 @@ teeditor.Teeditor = zk.$extends(zul.Widget, {
 	 */
 	
 	getConfig: function() { return this._config; },
+	/**
+	 * one can only set config at the beginning (the init state)
+	 */
 	setConfig: function (val){
 		this._config = val;
 		this._mergeConfig();
 		if(this.desktop){
 		//update the UI here.
-			if (this._cnt_jq) {
-				//one can only set config at the beginning
-				//this._cnt_jq.jqte(this._config);
-			}
 		}
 	},
 	
+	/**
+	 * we merge the user input config with the default (css, blur, focus)
+	 * and in order to prevent multiple function call, we do some determination below
+	 */
 	_mergeConfig: function () {
 		var wgt = this;
 		var config = this._config || {};
@@ -135,6 +138,10 @@ teeditor.Teeditor = zk.$extends(zul.Widget, {
 		this.$supers(teeditor.Teeditor,'unbind_', arguments);
 	},
 	
+	/**
+	 * apply to jqte's blur event
+	 * it will fire onChange event to server
+	 */
 	_onChange: function (wgt) {
 		//because jqte fire onBlur event, "this" meant to jqte here!!!!
 		clearInterval(wgt._begin_change_value);
@@ -143,6 +150,11 @@ teeditor.Teeditor = zk.$extends(zul.Widget, {
 		this.fire('onChange', {value: wgt._value});
 	},
 	
+	/**
+	 * apply to jqte's focus event
+	 * it will continue to fire onChanging event to server
+	 * once the value of jqte's editor is changed
+	 */
 	_onChanging: function (wgt) {
 		//because jqte fire onFocus event, "this" meant to jqte here!!!!
 		if (wgt._begin_change_value == 0) {

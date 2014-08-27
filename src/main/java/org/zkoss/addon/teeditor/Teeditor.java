@@ -43,6 +43,7 @@ public class Teeditor extends XulElement {
 	/*
 	 * This is for setting te editor's option
 	 * if the option value is not string, please apply "new JavaScriptValue(value)" first.
+	 * And its functionality only work before widget bind, so we don't provide smart update
 	 */
 	public void setConfig(Map<String, Object> config) {
 		if (config != null) {

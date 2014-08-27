@@ -29,7 +29,7 @@ public class DemoWindowComposer extends SelectorComposer<Component> {
 	
 	@Listen("onClick=#btn")
 	public void doChangeCSSOption() {
-		//myComp.setValue("noooo");
+		myComp.setValue("noooo");
 		Map<String, Object> config = new HashMap<String, Object>();
 		config.put("status", new JavaScriptValue(state? "false" : "true"));
 		//config.put("css", "example");
