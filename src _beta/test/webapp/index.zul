@@ -1,7 +1,0 @@
-<zk>
-	<window title="Hello World!!" 
-		apply="test.ctrl.DemoWindowComposer" width="800px">
-		<teeditor id="myComp" value="hi, there!" onChange="" onChanging=""/>
-		<button id="btn" label="change css"/>
-	</window>
-</zk>
