@@ -59,13 +59,13 @@
 	display:block;
 	width:22px;
 	height:22px;
-	background:url(${c:encodeURL('~./js/teeditor/jqte/jquery-te.png')}) no-repeat
+	background:url(${c:encodeURL('~./js/teeditor/ext/jqte/jquery-te.png')}) no-repeat
 }
 .z-teeditor_jqte_titleArrowIcon {
 	width:7px;
 	height:6px;
 	margin:0 auto;
-	background:url(${c:encodeURL('~./js/teeditor/jqte/jquery-te.png')}) 0 -23px no-repeat;
+	background:url(${c:encodeURL('~./js/teeditor/ext/jqte/jquery-te.png')}) 0 -23px no-repeat;
 }
 .z-teeditor_jqte_linktypearrow {
 	position:absolute;
@@ -73,7 +73,7 @@
 	width:7px;
 	height:6px;
 	margin:0 auto;
-	background:url(${c:encodeURL('~./js/teeditor/jqte/jquery-te.png')}) -7px -23px no-repeat;
+	background:url(${c:encodeURL('~./js/teeditor/ext/jqte/jquery-te.png')}) -7px -23px no-repeat;
 }
 .z-teeditor_jqte_tool.z-teeditor_jqte_tool_1 .z-teeditor_jqte_tool_label {
 	position:relative;

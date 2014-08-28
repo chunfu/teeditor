@@ -91,6 +91,8 @@ teeditor.Teeditor = zk.$extends(zul.Widget, {
 			config.css = this.getZclass() + '_jqte';
 			//config.css = this.$s('_jqte');
 		}
+		
+		//we check whether olbBlur is called before if it's no difference between new coming config.blur
 		var oldBlur = config.blur;
 		if (!oldBlur || !oldBlur._isZK) {
 			var self = this;
@@ -131,7 +133,7 @@ teeditor.Teeditor = zk.$extends(zul.Widget, {
 	},
 
 	unbind_: function () {
-		/*
+		/**
 		* For widget lifecycle , the super unbind_ should be called
 		* as LAST STATEMENT in the function.
 		*/
@@ -173,14 +175,6 @@ teeditor.Teeditor = zk.$extends(zul.Widget, {
 	redraw: function (out) {
 		out.push('<div', this.domAttrs_(), '><textarea id="', this.uuid, '-cnt">', this._value, '</textarea></div>');
 	},
-	/*
-		widget event, more detail 
-		please refer to http://books.zkoss.org/wiki/ZK%20Client-side%20Reference/Notifications
-	 
-	doClick_: function (evt) {
-		this.$super('doClick_', evt, true);//the super doClick_ should be called
-		this.fire('onFoo', {foo: 'myData'});
-	},*/
 	
 	getZclass: function () {
 		return this._zclass != null ? this._zclass: "z-teeditor";
