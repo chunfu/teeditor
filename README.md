@@ -1,21 +1,26 @@
 ZK addon for teeditor
 ========
-
-I wrap JQuery TE editor (jqte) into ZK component.
-
-In default, it provide onChange event and onChaning event.
-
+It wraps JQuery TE editor (jqte) into ZK component.
+It can be simply used as a zk component in zul file as follows,
+```
+<teeditor id="myComp" value="hi, there!" onChange="" onChanging=""/>
+```
+In default, it provide `onChange` event and `onChaning` event.
 For anyone who wants to use this addon, you can set your own configurations/options to jqte
+in composer at `doAfterCompose` method, because once jqte is initiated we can't modify the options.
+The way how to set configuration to jqte is as follows, 
+```java
+@Wire
+Teeditor myComp;
 
-in composer before doAfterCompose method, because once jqte is initiated we can't modify the options.
-
-The way how to set configuration to jqte is to create a Map<String, Object>, 
-
-and the key, value pair correspond to jqte's option.
-
-Notice that if value is not string, you should transform it to JavaScriptValue(value).
-
-After obtaining a map, then call setConfig method in Teeditor component.
-
-More configurations detail, please see http://jqueryte.com/documentation
-
+Map<String, Object> config = new HashMap<String, Object>();
+config.put("b", new JavaScriptValue("false"));
+config.put("blur", new JavaScriptValue("function() {alert('hi');}"));
+config.put("css", "example");
+myComp.setConfig(config);
+```
+Notice that you have to obtain your own css file once if setting css config.
+More detail, please see [JQTE doc](http://jqueryte.com/documentation)
+## Resources
+### License
+ * [MTI](http://opensource.org/licenses/MIT)
