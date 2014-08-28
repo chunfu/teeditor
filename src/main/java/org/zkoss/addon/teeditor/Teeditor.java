@@ -13,6 +13,12 @@ import org.zkoss.zk.ui.event.Events;
 import org.zkoss.zk.ui.event.InputEvent;
 import org.zkoss.zul.impl.XulElement;
 
+/**
+ *	It's zk addon to wrap JQuery TE editor
+ *	By default, it supports two events, onChange and onChanging 
+ * @author Chunfu
+ *
+ */
 public class Teeditor extends XulElement {
 
 	static {
@@ -40,7 +46,7 @@ public class Teeditor extends XulElement {
 		return _config;
 	}
 
-	/*
+	/**
 	 * This is for setting te editor's option
 	 * if the option value is not string, please apply "new JavaScriptValue(value)" first.
 	 * And its functionality only work before widget bind, so we don't provide smart update
@@ -64,6 +70,9 @@ public class Teeditor extends XulElement {
 			render(renderer, "config", _config);;
 	}
 	
+	/**
+	 * Receive onChange and onChanging events from client widget 
+	 */
 	public void service(AuRequest request, boolean everError) {
 		final String cmd = request.getCommand();
 		final Map data = request.getData();
@@ -71,20 +80,20 @@ public class Teeditor extends XulElement {
 		if (Events.ON_CHANGE.equals(cmd)) {
 			InputEvent ie = InputEvent.getInputEvent(request, _value);
 			final String value = (String)data.get("value");
-			System.out.println("onChange, value:" + value);
 			_value = value;
 			
 			Events.postEvent(ie);
 		} else if(Events.ON_CHANGING.equals(cmd)) { 
 			InputEvent ie = InputEvent.getInputEvent(request, _value);
-			final String value = (String)data.get("value");
-			System.out.println("onChanging, value:" + value);
 			Events.postEvent(ie);
 		}
 		else
 			super.service(request, everError);
 	}
 	
+	/**
+	 * Not support child added
+	 */
 	@Override
 	public void beforeChildAdded(Component child, Component insertBefore) {
 		// TODO Auto-generated method stub
