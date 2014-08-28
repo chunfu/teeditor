@@ -71,12 +71,14 @@ public class Teeditor extends XulElement {
 		if (Events.ON_CHANGE.equals(cmd)) {
 			InputEvent ie = InputEvent.getInputEvent(request, _value);
 			final String value = (String)data.get("value");
+			System.out.println("onChange, value:" + value);
 			_value = value;
 			
 			Events.postEvent(ie);
 		} else if(Events.ON_CHANGING.equals(cmd)) { 
 			InputEvent ie = InputEvent.getInputEvent(request, _value);
-			
+			final String value = (String)data.get("value");
+			System.out.println("onChanging, value:" + value);
 			Events.postEvent(ie);
 		}
 		else
