@@ -172,10 +172,6 @@ teeditor.Teeditor = zk.$extends(zul.Widget, {
 		}
 	},
 	
-	redraw: function (out) {
-		out.push('<div', this.domAttrs_(), '><textarea id="', this.uuid, '-cnt">', this._value, '</textarea></div>');
-	},
-	
 	getZclass: function () {
 		return this._zclass != null ? this._zclass: "z-teeditor";
 	}

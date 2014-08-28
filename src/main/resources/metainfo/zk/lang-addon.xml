@@ -3,7 +3,7 @@
   	<version>
 		<version-class>org.zkoss.addon.teeditor.Version</version-class>
 		<version-uid>0.8.0</version-uid>
-		<zk-version>7.0.2</zk-version><!-- or later -->
+		<zk-version>7.0.0</zk-version><!-- or later -->
 	</version>
     
 	<language-name>xul/html</language-name>
@@ -27,7 +27,6 @@
 			====
 			-->
 			<css-uri>css/teeditor.css.dsp</css-uri>
-			<!-- <css-uri>jqte/jquery-te-1.4.0.css</css-uri> -->
 		</mold>
 	</component>
 </language-addon>
